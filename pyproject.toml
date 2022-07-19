@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "rock-paper-scissors"
+version = "0.1.0"
+description = ""
+authors = ["gitavk <3apa3ka3@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.79.0"
+uvicorn = {extras = ["standard"], version = "^0.18.2"}
+SQLAlchemy = "^1.4.39"
+alembic = "^1.8.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+ipython = "^8.4.0"
+black = "^22.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
