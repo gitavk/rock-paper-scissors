@@ -5,3 +5,6 @@ __pycache__
 # database
 app.sqlite.db
 
+# secrets
+.env
+

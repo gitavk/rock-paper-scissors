@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 
 class UserBaseSchema(BaseModel):
-    nickname: str
+    username: str
 
 
 class UserCreateSchema(UserBaseSchema):
@@ -14,4 +14,3 @@ class UserSchema(UserBaseSchema):
 
     class Config:
         orm_mode = True
-
