@@ -1,3 +1,7 @@
+[tool.pyright]
+include = ["app"]
+ignore = ["**/__init__.py"]
+
 [tool.poetry]
 name = "rock-paper-scissors"
 version = "0.1.0"
@@ -18,6 +22,10 @@ python-multipart = "^0.0.5"
 pytest = "^7.1.2"
 ipython = "^8.4.0"
 black = "^22.6.0"
+isort = "^5.10.1"
+flake8 = "^4.0.1"
+mypy = "^0.971"
+sqlalchemy-stubs = "^0.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

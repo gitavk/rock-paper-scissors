@@ -1,8 +1,9 @@
 from typing import Optional
+
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
-from app.models.game import Game
 
+from app.models.game import Game
 from app.models.user import User
 
 
@@ -24,7 +25,7 @@ class GameRepositorty:
         self.db.refresh(db_game)
         return db_game
 
-    def add_player(self, gid:int, user: User) -> Game:
+    def add_player(self, gid: int, user: User) -> Game:
         db_game: Game = self.get(gid)
         db_game.players.append(user)
         self.db.add(db_game)

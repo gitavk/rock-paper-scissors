@@ -1,13 +1,13 @@
+from datetime import datetime, timedelta
 from typing import Optional
-from fastapi import status, HTTPException
+
+from fastapi import HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
+from jose import jwt
+from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 
-from passlib.context import CryptContext
-from jose import jwt
 from app.config import settings
-from datetime import datetime, timedelta
-
 from app.models.user import User
 from app.schemas.user import UserCreateSchema
 

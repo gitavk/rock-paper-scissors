@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-from app.routers import users, auth, games
+
+from app.routers import auth, games, users
 
 app: FastAPI = FastAPI()
 app.include_router(users.router)

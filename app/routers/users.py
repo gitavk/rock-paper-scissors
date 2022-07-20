@@ -1,5 +1,6 @@
-from fastapi import Depends, status, APIRouter
+from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
+
 from app.crud.user import UserRepositorty
 from app.database import get_db
 from app.models.user import User

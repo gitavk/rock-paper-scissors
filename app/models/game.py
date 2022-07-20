@@ -1,7 +1,7 @@
 from sqlalchemy import Column, ForeignKey, Integer, Table, UniqueConstraint
-from sqlalchemy.orm import relationship
-from app.database import Base
+from sqlalchemy.orm import RelationshipProperty, relationship
 
+from app.database import Base
 
 players = Table(
     "players",
@@ -16,7 +16,7 @@ class Game(Base):
     __tablename__ = "games"
 
     id = Column(Integer, primary_key=True, index=True)
-    players = relationship(
+    players: RelationshipProperty = relationship(
         "User",
         secondary=players,
     )
@@ -37,7 +37,7 @@ class Round(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     winner = Column(Integer, ForeignKey("users.id"), index=True)
-    options = relationship(
+    options: RelationshipProperty = relationship(
         "Option",
         secondary=round_options,
     )

@@ -1,8 +1,7 @@
 from sqlalchemy import Column, ForeignKey, Integer, String, Table, UniqueConstraint
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import RelationshipProperty, relationship
 
 from app.database import Base
-
 
 beats = Table(
     "beats",
@@ -18,7 +17,7 @@ class Option(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, unique=True, index=True)
-    beats = relationship(
+    beats: RelationshipProperty = relationship(
         "Option",
         secondary=beats,
         primaryjoin=id == beats.c.option_id,
