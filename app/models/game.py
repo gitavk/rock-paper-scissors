@@ -19,8 +19,6 @@ class Game(Base):
     players = relationship(
         "User",
         secondary=players,
-        primaryjoin=id == players.c.game_id,
-        secondaryjoin=id == players.c.user_id,
     )
 
 
@@ -42,6 +40,4 @@ class Round(Base):
     options = relationship(
         "Option",
         secondary=round_options,
-        primaryjoin=id == round_options.c.round_id,
-        secondaryjoin=id == round_options.c.option_id,
     )
