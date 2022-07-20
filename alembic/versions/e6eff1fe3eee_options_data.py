@@ -32,8 +32,8 @@ beats_data = (
 t_beats = sa.Table(
     "beats",
     Base.metadata,
-    sa.Column("option_id", sa.Integer),
-    sa.Column("beat_id", sa.Integer),
+    sa.Column("option_id", sa.Integer, sa.ForeignKey("options.id"), index=True),
+    sa.Column("beat_id", sa.Integer, sa.ForeignKey("options.id")),
     extend_existing=True,
 )
 
