@@ -1,6 +1,7 @@
 [tool.pyright]
 include = ["app"]
 ignore = ["**/__init__.py"]
+useLibraryCodeForTypes = true
 
 [tool.poetry]
 name = "rock-paper-scissors"
