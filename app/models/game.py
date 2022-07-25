@@ -76,5 +76,5 @@ class Round(Base):
         if move0.option == move1.option:
             return None
         elif move0.option in move1.option.beats:
-            return move0.user
-        return move1.user
+            return move1.user
+        return move0.user

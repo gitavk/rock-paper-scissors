@@ -10,7 +10,12 @@ run:
 format:
 	poetry run black app
 	poetry run isort app
+	poetry run black tests
+	poetry run isort tests
 
 lint:
 	poetry run flake8 app
 	poetry run mypy app
+
+tests-unit:
+	poetry run python -m pytest -vv tests/unit
