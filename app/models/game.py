@@ -36,7 +36,15 @@ class Game(Base):
         if not all_winners:
             return None
         winners: Counter = Counter(all_winners)
-        return winners.most_common(1)[0][0]
+        try:
+            win1, win2 = winners.most_common(2)
+        except ValueError:
+            return winners.most_common(1)[0][0]
+        else:
+            if win1[1] == win2[1]:
+                return None
+            else:
+                return win1[0]
 
 
 round_moves = Table(
