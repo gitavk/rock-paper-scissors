@@ -19,3 +19,10 @@ lint:
 
 tests-unit:
 	poetry run python -m pytest -vv tests/unit
+
+tests-integration:
+	poetry run python -m pytest -vv tests/integration
+
+
+tests: tests-unit tests-integration
+
