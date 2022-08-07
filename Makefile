@@ -1,27 +1,29 @@
+base_cmd = poetry run
+
 build-migration:
-	alembic revision --autogenerate -m $(migrate_name)
+	$(base_cmd) alembic revision --autogenerate -m $(migrate_name)
 
 migrate:
-	alembic upgrade head
+	$(base_cmd) alembic upgrade head
 
 run:
-	uvicorn app.main:app --reload
+	$(base_cmd) uvicorn app.main:app --reload
 
 format:
-	poetry run black app
-	poetry run isort app
-	poetry run black tests
-	poetry run isort tests
+	$(base_cmd) black app
+	$(base_cmd) isort app
+	$(base_cmd) black tests
+	$(base_cmd) isort tests
 
 lint:
-	poetry run flake8 app
-	poetry run mypy app
+	$(base_cmd) flake8 app
+	$(base_cmd) mypy app
 
 tests-unit:
-	poetry run python -m pytest -vv tests/unit
+	$(base_cmd) python -m pytest -vv tests/unit
 
 tests-integration:
-	poetry run python -m pytest -vv tests/integration
+	$(base_cmd) python -m pytest -vv tests/integration
 
 
 tests: tests-unit tests-integration
