@@ -79,7 +79,7 @@ class GameRepositorty:
                 status_code=status.HTTP_406_NOT_ACCEPTABLE,
                 detail="User alredy move in this round",
             )
-        move: Move = Move(user_id=user.id, option=self.get_option(oid))
+        move: Move = Move(user=user, option=self.get_option(oid))
         round.moves.append(move)
         if len(round.moves) == 2:
             round_finished = True

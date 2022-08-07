@@ -1,3 +1,4 @@
+from typing import List
 from sqlalchemy import Column, ForeignKey, Integer, String, Table, UniqueConstraint
 from sqlalchemy.orm import RelationshipProperty, relationship
 
@@ -23,3 +24,7 @@ class Option(Base):
         primaryjoin=id == beats.c.option_id,
         secondaryjoin=id == beats.c.beat_id,
     )
+
+    def __repr__(self) -> str:
+        beats: List[str] = [o.title for o in self.beats]
+        return f"{self.title}: {beats}"
